@@ -7,7 +7,7 @@ An AI-powered guest assistant for a hotel website. Guests chat to ask about the 
 - **LLM:** Google Gemini (with function/tool calling)
 - **Tests:** pytest (backend), Vitest + Testing Library (frontend), Playwright (end-to-end)
 
-**Live demo:** https://<project>.vercel.app  ·  **API:** https://<your-service>.onrender.com/docs
+**Live demo:** https://hotelguest-assistant.vercel.app/  ·  **API:** https://hotel-guest-assistant-ghff.onrender.com/docs
 
 > The demo runs on free tiers. The first request after idle time can take 30-60 seconds (backend cold start), and the Gemini free tier allows about 20 model requests per day, so chat may show a temporary-unavailable message once that is used up. The availability form does not use the model and keeps working.
 
