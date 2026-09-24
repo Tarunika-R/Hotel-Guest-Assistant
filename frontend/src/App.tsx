@@ -1,9 +1,11 @@
 import { RotateCcw, Waves } from 'lucide-react'
 import ChatWindow from './components/ChatWindow'
 import { useChat } from './hooks/useChat'
+import { useOnline } from './hooks/useOnline'
 
 export default function App() {
   const { messages, loading, send, retry, reset } = useChat()
+  const online = useOnline()
 
   return (
     <div className="mx-auto flex h-dvh max-w-3xl flex-col sm:p-6">
@@ -25,6 +27,12 @@ export default function App() {
             <RotateCcw className="h-4 w-4" />
           </button>
         </header>
+
+        {!online && (
+          <div role="status" className="bg-gold-400/20 px-4 py-2 text-center text-xs text-ink-900">
+            You're offline. Reconnect to keep chatting.
+          </div>
+        )}
 
         <ChatWindow messages={messages} loading={loading} send={send} retry={retry} />
       </main>

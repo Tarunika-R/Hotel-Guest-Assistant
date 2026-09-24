@@ -20,6 +20,15 @@ export default function ChatInput({ disabled, onSend, onOpenForm }: Props) {
         el.style.height = `${Math.min(el.scrollHeight, 128)}px`
     }, [value])
 
+    const mounted = useRef(false)
+    useEffect(() => {
+        if (!mounted.current) {
+            mounted.current = true
+            return
+        }
+        if (!disabled && window.matchMedia('(min-width: 640px)').matches) ref.current?.focus()
+    }, [disabled])
+
     const submit = () => {
         if (!value.trim() || disabled) return
         onSend(value)
