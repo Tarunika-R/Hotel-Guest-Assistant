@@ -35,7 +35,7 @@ def _availability_message(res: AvailabilityResult) -> str:
                 f"Try different dates or fewer guests, or contact us at {_contact()} for group options.")
     cheapest = res.options[0]
     return (f"Good news! We have {_plural(len(res.options), 'room type')} available for {guests}, "
-            f"{dates} ({_plural(res.nights, 'night')}). Prices start at ${cheapest.price_per_night:g}/night.")
+            f"{dates} ({_plural(res.nights, 'night')}). Prices start at ₹{cheapest.price_per_night:g}/night.")
 
 
 def _history_text(resp: ChatResponse) -> str:

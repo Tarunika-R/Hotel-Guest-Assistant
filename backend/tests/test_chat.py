@@ -139,3 +139,5 @@ def test_guest_text_never_enters_system_prompt(make_client):
     call = llm.calls[0]
     assert evil not in call["system"]
     assert call["messages"][-1] == {"role": "user", "content": evil}
+
+    

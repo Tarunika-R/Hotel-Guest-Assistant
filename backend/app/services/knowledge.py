@@ -24,7 +24,7 @@ def build_context() -> str:
     h = get_hotel()
     lines = [f"HOTEL: {h['hotel']['name']}, {h['hotel']['location']}. "
              f"Phone {h['hotel']['phone']}, email {h['hotel']['email']}. "
-             f"Prices in {h['hotel']['currency']}."]
+             f"Prices are in Indian Rupees (INR, ₹)."]
 
     lines.append("\nPOLICIES:")
     lines += [f"- {k.replace('_', ' ').title()}: {v}" for k, v in h["policies"].items()]
@@ -38,7 +38,7 @@ def build_context() -> str:
     lines.append("\nROOMS:")
     for r in h["rooms"]:
         lines.append(f"- {r['name']} (id {r['id']}): sleeps {r['capacity']}, {r['beds']}, "
-                     f"{r['size_sqm']} sqm, ${r['price_per_night']}/night, "
+                     f"{r['size_sqm']} sqm, ₹{r['price_per_night']}/night, "
                      f"features: {', '.join(r['features'])}")
 
     lines.append("\nFAQS:")
