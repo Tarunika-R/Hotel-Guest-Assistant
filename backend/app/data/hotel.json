@@ -10,7 +10,7 @@
     "policies": {
         "check_in_time": "3:00 PM",
         "check_out_time": "11:00 AM",
-        "early_check_in": "Subject to availability; free before 12 PM only if room is ready, otherwise 50% of one night's rate.",
+        "early_check_in": "Early check-in is subject to availability and room readiness. A fee of 50% of one night's rate applies for arrivals before 12:00 PM.",
         "late_check_out": "Until 2:00 PM for a fee of ₹2,500, subject to availability.",
         "cancellation": "Free cancellation up to 48 hours before check-in. Within 48 hours, the first night is charged. No-shows are charged in full.",
         "children": "Children under 12 stay free when using existing bedding.",
@@ -49,7 +49,11 @@
         },
         {
             "name": "Airport shuttle",
-            "details": "Available on request for $25 each way; please book 24 hours ahead."
+            "details": "Available on request for ₹2,000 each way; please book 24 hours ahead."
+        },
+        {
+            "name": "Swimming pool",
+            "details": "Outdoor infinity pool, open 6:00 AM to 10:00 PM. Towels provided. Children's shallow section available."
         }
     ],
     "rooms": [

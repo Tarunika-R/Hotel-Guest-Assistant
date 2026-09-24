@@ -29,6 +29,9 @@ export async function sendChat(payload: ChatRequest): Promise<ChatResponse> {
             const body = await res.json().catch(() => null)
             throw new ApiError('validation', body?.detail ?? 'Please check your input and try again.')
         }
+        if (res.status === 429) {
+            throw new ApiError('server', 'Too many messages. Please wait a minute and try again.')
+        }
         if (!res.ok) {
             throw new ApiError('server', 'Something went wrong on our side. Please try again.')
         }

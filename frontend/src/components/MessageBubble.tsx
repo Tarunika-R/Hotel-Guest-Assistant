@@ -22,7 +22,7 @@ export default function MessageBubble({ message, isLast, onRetry, onAsk }: Props
             className={`flex gap-2.5 ${isUser ? 'justify-end' : 'justify-start'}`}
         >
             {!isUser && (
-                <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-ocean-500 to-ocean-900 text-white shadow">
+                <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold-400 to-coral-500 text-white shadow shadow-coral-500/30">
                     <Waves className="h-4 w-4" />
                 </div>
             )}
@@ -37,7 +37,7 @@ export default function MessageBubble({ message, isLast, onRetry, onAsk }: Props
                                 ? 'rounded-2xl rounded-br-md bg-gradient-to-br from-ocean-500 to-ocean-800 px-4 py-2.5 text-sm text-white shadow-sm'
                                 : message.type === 'fallback'
                                     ? 'rounded-2xl rounded-tl-md border border-gold-400/50 bg-gold-400/10 px-4 py-2.5 text-sm text-ink-900'
-                                    : 'rounded-2xl rounded-tl-md border border-white bg-white px-4 py-2.5 text-sm text-ink-900 shadow-sm'
+                                    : 'rounded-2xl rounded-tl-md border border-white bg-white px-4 py-2.5 text-sm text-ink-900 shadow-md shadow-ocean-900/5'
                         }
                     >
                         <p className="whitespace-pre-wrap leading-relaxed">{message.content}</p>

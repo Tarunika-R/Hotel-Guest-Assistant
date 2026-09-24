@@ -16,6 +16,8 @@ from app.services.knowledge import get_hotel, max_capacity
 from app.services.llm_client import LLMClient, get_llm_client
 from app.services.session_store import SessionStore, get_session_store
 
+from collections import defaultdict, deque
+
 settings = get_settings()
 setup_logging(settings.log_level)
 logger = logging.getLogger("hotel.api")
@@ -42,6 +44,27 @@ async def request_context(request: Request, call_next):
     logger.info("rid=%s %s %s -> %s %.0fms", request_id, request.method, request.url.path,
                 response.status_code, ms)
     return response
+
+_hits: dict[str, deque] = defaultdict(deque)
+
+@app.middleware("http")
+async def rate_limit(request: Request, call_next):
+    limit = settings.rate_limit_per_minute
+    if limit and request.method == "POST" and request.url.path == "/api/chat":
+        fallback_ip = request.client.host if request.client else "unknown"
+        ip = request.headers.get("x-forwarded-for", fallback_ip).split(",")[0].strip()
+        now = time.time()
+        q = _hits[ip]
+        while q and now - q[0] > 60:
+            q.popleft()
+        if len(q) >= limit:
+            return JSONResponse(
+                status_code=429,
+                content={"request_id": "rate-limited", "error": "rate_limited",
+                         "detail": "Too many requests. Please wait a minute and try again."},
+            )
+        q.append(now)
+    return await call_next(request)
 
 
 def _rid(request: Request) -> str:

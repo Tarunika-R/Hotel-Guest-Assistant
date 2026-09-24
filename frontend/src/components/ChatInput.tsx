@@ -38,7 +38,7 @@ export default function ChatInput({ disabled, onSend, onOpenForm }: Props) {
 
     return (
         <div className="border-t border-ocean-100/60 bg-white/70 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:p-4">
-            <div className="flex items-end gap-2 rounded-2xl border border-ocean-100 bg-white p-1.5 shadow-sm focus-within:border-ocean-400">
+            <div className="flex items-end gap-2 rounded-3xl border border-ocean-100 bg-white p-1.5 shadow-sm transition focus-within:border-ocean-400 focus-within:shadow-lg focus-within:shadow-ocean-200/60">
                 <button
                     onClick={onOpenForm}
                     aria-label="Check availability"
@@ -69,7 +69,7 @@ export default function ChatInput({ disabled, onSend, onOpenForm }: Props) {
                     onClick={submit}
                     disabled={disabled || !value.trim()}
                     aria-label="Send message"
-                    className="shrink-0 rounded-xl bg-gradient-to-br from-ocean-500 to-ocean-800 p-2.5 text-white shadow transition hover:opacity-95 disabled:opacity-40"
+                    className="shrink-0 rounded-2xl bg-gradient-to-br from-coral-400 to-coral-500 p-2.5 text-white shadow-md shadow-coral-500/30 transition hover:scale-105 disabled:opacity-40 disabled:hover:scale-100"
                 >
                     <SendHorizontal className="h-5 w-5" />
                 </button>

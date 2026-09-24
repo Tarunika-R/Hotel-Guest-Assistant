@@ -7,6 +7,7 @@ import ChatInput from './ChatInput'
 import MessageBubble from './MessageBubble'
 import SuggestedQuestions from './SuggestedQuestions'
 import TypingIndicator from './TypingIndicator'
+import QuickReplies from './QuickReplies'
 
 interface Props {
     messages: ChatMessage[]
@@ -76,6 +77,7 @@ export default function ChatWindow({ messages, loading, send, retry }: Props) {
                 )}
             </AnimatePresence>
 
+            {messages.length > 1 && !showForm && <QuickReplies onPick={(q) => send(q)} disabled={loading} />}
             <ChatInput disabled={loading} onSend={(t) => send(t)} onOpenForm={() => setShowForm(true)} />
         </div>
     )

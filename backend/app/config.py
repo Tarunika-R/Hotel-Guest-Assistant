@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     allowed_origins: str = "http://localhost:5173"
     log_level: str = "INFO"
     max_history_messages: int = 10
+    rate_limit_per_minute: int = 0  # 0 = disabled
 
     @property
     def origins_list(self) -> list[str]:

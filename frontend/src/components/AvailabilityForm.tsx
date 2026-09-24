@@ -114,7 +114,7 @@ export default function AvailabilityForm({ missing = [], disabled, onSubmit, onC
             <button
                 type="submit"
                 disabled={disabled}
-                className="mt-4 w-full rounded-full bg-gradient-to-r from-ocean-500 to-ocean-800 py-2.5 text-sm font-medium text-white shadow transition hover:opacity-95 disabled:opacity-50"
+                className="mt-4 w-full rounded-full bg-gradient-to-r from-coral-500 to-gold-500 py-2.5 text-sm font-semibold text-white shadow-lg shadow-coral-500/25 transition hover:opacity-95 disabled:opacity-50"
             >
                 {disabled ? 'Searching…' : 'Search rooms'}
             </button>
