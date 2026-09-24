@@ -7,7 +7,7 @@ interface Props {
     onAsk: (text: string) => void
 }
 
-const money = (n: number) => `$${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+const money = (n: number) => `₹${n.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`
 
 export default function AvailabilityResults({ result, onAsk }: Props) {
     if (result.options.length === 0) return null
