@@ -25,6 +25,7 @@
 | 17 | Missing API key | Start the backend without `GEMINI_API_KEY` | App starts, chat returns friendly error, form still works | Backend `test_missing_api_key_degrades_gracefully` | Pass |
 | 18 | Input validation | Empty, blank or 1001-character message, zero guests, checkout before check-in | HTTP 422 with `{request_id, error, detail}` | Backend `test_validation.py` | Pass |
 | 19 | End-to-end | Open app → ask question → follow-up → availability form → results | Full flow works through real frontend and backend | Playwright `e2e/chat.spec.ts` | ☐ |
+| 20 | Deployed end-to-end | Ask a question and run the form on the live URL | Works through Vercel → Render → Gemini | Manual | Pass |
 
 ## How to fill in "Observed"
 

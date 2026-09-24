@@ -7,6 +7,10 @@ An AI-powered guest assistant for a hotel website. Guests chat to ask about the 
 - **LLM:** Google Gemini (with function/tool calling)
 - **Tests:** pytest (backend), Vitest + Testing Library (frontend), Playwright (end-to-end)
 
+**Live demo:** https://<project>.vercel.app  ·  **API:** https://<your-service>.onrender.com/docs
+
+> The demo runs on free tiers. The first request after idle time can take 30-60 seconds (backend cold start), and the Gemini free tier allows about 20 model requests per day, so chat may show a temporary-unavailable message once that is used up. The availability form does not use the model and keeps working.
+
 Docs: [Architecture](docs/ARCHITECTURE.md) · [Product, UX, engineering and AI decisions](docs/DECISIONS.md) · [Evaluation scenarios and results](docs/EVALUATION.md)
 
 ## Project structure
@@ -123,6 +127,7 @@ Response:
 | `needs_input` | Dates or guest count missing | Opens the form, highlights missing fields |
 | `fallback` | Not answerable from the data | Highlighted bubble that points to the front desk |
 | `error` | Model unavailable or timed out | Error card with **Try again** |
+| `RATE_LIMIT_PER_MINUTE` | Per-IP limit on `POST /api/chat` (`0` disables it) | `0` |
 
 Other endpoints: `POST /api/availability`, `GET /api/hotel`, `GET /api/health`. Validation errors return HTTP 422 with `{request_id, error, detail}`, and unexpected errors return HTTP 500 in the same shape.
 
@@ -165,8 +170,16 @@ Use future dates. Past dates are rejected.
 - **Claude (Anthropic):** pair-programming assistant for planning the architecture, generating and iterating on code, tests and documentation. I reviewed, ran and debugged everything, and adapted it (for example, switching the LLM provider from Claude to Gemini, and the currency to INR).
 - **Google Gemini:** the runtime model inside the product, used through the Gemini API.
 
+## Deployment
+
+- **Backend:** Render web service, root directory `backend`, start command `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Environment: `GEMINI_API_KEY`, `LLM_MODEL`, `PYTHON_VERSION=3.12.3`, `RATE_LIMIT_PER_MINUTE=10`, `ALLOWED_ORIGINS=<frontend URL>`.
+- **Frontend:** Vercel, root directory `frontend`, environment `VITE_API_BASE_URL=<backend URL>`. Redeploy after changing it.
+- The API key exists only on the backend.
+
 ## Known limitations
 
 - Availability is mocked (deterministic fake bookings), not connected to a booking system.
 - Conversation memory is in-process, so it is lost on restart and is not shared across instances.
 - No authentication or rate limiting. See [DECISIONS.md](docs/DECISIONS.md) for the production plan.
+- Free-tier hosting and the free Gemini quota limit demo traffic. Free-tier services sleep when idle.
+- The rate limiter is per-process and in memory.

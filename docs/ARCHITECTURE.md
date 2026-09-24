@@ -51,3 +51,7 @@ flowchart LR
 ## Data
 
 `hotel.json` holds the property details, policies, breakfast, amenities, rooms and FAQs. It is small enough to pass in full as context, so there is no retrieval layer. Room prices and capacities are also read by the availability function, so there is a single source of truth.
+
+## Deployment
+
+Frontend is a static Vite build on Vercel. Backend is a FastAPI service on Render. The browser calls the backend directly using `VITE_API_BASE_URL`, and the backend allows only the frontend origin through `ALLOWED_ORIGINS`. Secrets live only in Render's environment.
