@@ -1,0 +1,127 @@
+{
+    "hotel": {
+        "name": "Azure Bay Resort & Spa",
+        "location": "Marine Drive, Goa, India",
+        "phone": "+91 832 555 0100",
+        "email": "stay@azurebay.example",
+        "star_rating": 4,
+        "currency": "USD"
+    },
+    "policies": {
+        "check_in_time": "3:00 PM",
+        "check_out_time": "11:00 AM",
+        "early_check_in": "Subject to availability; free before 12 PM only if room is ready, otherwise 50% of one night's rate.",
+        "late_check_out": "Until 2:00 PM for a fee of $30, subject to availability.",
+        "cancellation": "Free cancellation up to 48 hours before check-in. Within 48 hours, the first night is charged. No-shows are charged in full.",
+        "children": "Children under 12 stay free when using existing bedding.",
+        "pets": "Pets are not allowed, except service animals.",
+        "smoking": "All rooms are non-smoking. A designated smoking area is available outdoors.",
+        "payment": "Visa, Mastercard, Amex and UPI accepted. A card is required to guarantee the booking."
+    },
+    "breakfast": {
+        "included": false,
+        "details": "Breakfast is not included in the room rate. A buffet breakfast is available daily from 7:00 AM to 10:30 AM for $15 per adult; children under 6 eat free. Rate plans with breakfast can be requested at booking."
+    },
+    "amenities": [
+        {
+            "name": "Swimming pool",
+            "details": "Outdoor infinity pool, open 6:00 AM to 10:00 PM. Towels provided. Children's shallow section available."
+        },
+        {
+            "name": "Spa",
+            "details": "Full-service spa, open 10:00 AM to 8:00 PM. Advance booking recommended."
+        },
+        {
+            "name": "Fitness centre",
+            "details": "Open 24 hours for in-house guests."
+        },
+        {
+            "name": "Restaurant",
+            "details": "The Tide Room serves multi-cuisine lunch and dinner from 12:00 PM to 11:00 PM."
+        },
+        {
+            "name": "Wi-Fi",
+            "details": "Free high-speed Wi-Fi throughout the property."
+        },
+        {
+            "name": "Parking",
+            "details": "Free on-site parking for guests."
+        },
+        {
+            "name": "Airport shuttle",
+            "details": "Available on request for $25 each way; please book 24 hours ahead."
+        }
+    ],
+    "rooms": [
+        {
+            "id": "standard-queen",
+            "name": "Standard Queen",
+            "capacity": 2,
+            "beds": "1 Queen bed",
+            "size_sqm": 24,
+            "price_per_night": 110,
+            "total_rooms": 10,
+            "features": [
+                "City view",
+                "Air conditioning",
+                "Work desk"
+            ]
+        },
+        {
+            "id": "deluxe-king",
+            "name": "Deluxe King",
+            "capacity": 2,
+            "beds": "1 King bed",
+            "size_sqm": 30,
+            "price_per_night": 150,
+            "total_rooms": 8,
+            "features": [
+                "Sea view",
+                "Private balcony",
+                "Bathtub"
+            ]
+        },
+        {
+            "id": "junior-suite",
+            "name": "Junior Suite",
+            "capacity": 3,
+            "beds": "1 King bed + 1 sofa bed",
+            "size_sqm": 40,
+            "price_per_night": 210,
+            "total_rooms": 5,
+            "features": [
+                "Sea view",
+                "Separate seating area",
+                "Private balcony"
+            ]
+        },
+        {
+            "id": "family-suite",
+            "name": "Family Suite",
+            "capacity": 4,
+            "beds": "2 Queen beds",
+            "size_sqm": 52,
+            "price_per_night": 280,
+            "total_rooms": 3,
+            "features": [
+                "Two bedrooms",
+                "Kitchenette",
+                "Garden view"
+            ]
+        }
+    ],
+    "faqs": [
+        {
+            "q": "Is there an airport pickup?",
+            "a": "Yes, an airport shuttle is available on request for $25 each way. Please book 24 hours ahead."
+        },
+        {
+            "q": "Is the hotel wheelchair accessible?",
+            "a": "Yes, the lobby, restaurant, pool area and select rooms are wheelchair accessible."
+        },
+        {
+            "q": "Do you offer extra beds?",
+            "a": "Extra beds can be added to Deluxe King and Junior Suite rooms for $25 per night, subject to availability."
+        }
+    ]
+}
